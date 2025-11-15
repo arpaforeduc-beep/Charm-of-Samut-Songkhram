@@ -1158,4 +1158,8 @@
                 </p>
                 <div style="margin-top: 1.5rem;">
                     <p style="margin-bottom: 0.5rem;">ติดตามเราได้ที่:</p>
-                    <div style="display: flex; gap: 0.8rem; font-size: 1.8rem
+                    <div style="display: flex; gap: 0.8rem; font-size: 1.8rem </div>
+                </div>
+</head>
+</body>
+</html>
