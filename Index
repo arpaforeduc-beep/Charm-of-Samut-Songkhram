@@ -8,750 +8,25 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&family=Charm:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary-color: #8B4513;
-            --secondary-color: #D4AF37;
-            --accent-color: #CD853F;
-            --text-dark: #2c3e50;
-            --text-light: #7f8c8d;
-            --bg-light: #FFF8DC;
-            --white: #ffffff;
-            --shadow: 0 4px 6px rgba(0,0,0,0.1);
-            --shadow-lg: 0 10px 25px rgba(0,0,0,0.15);
-        }
-
-        body {
-            font-family: 'Sarabun', sans-serif;
-            color: var(--text-dark);
-            line-height: 1.8;
-            overflow-x: hidden;
-        }
-
-        .thai-font {
-            font-family: 'Charm', cursive;
-        }
-
-        /* Navigation */
-        nav {
-            background: var(--white);
-            padding: 1rem 5%;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: var(--shadow);
-            border-bottom: 3px solid var(--secondary-color);
-        }
-
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            text-decoration: none;
-            font-family: 'Charm', cursive;
-        }
-
-        .logo-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text-dark);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-            position: relative;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary-color);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--secondary-color);
-            transition: width 0.3s;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        /* Hero Section */
-        .hero {
-            margin-top: 80px;
-            background: linear-gradient(135deg, rgba(139, 69, 19, 0.9), rgba(205, 133, 63, 0.9)),
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%238B4513" width="1200" height="600"/><path fill="%23D4AF37" opacity="0.1" d="M0 300 Q300 200 600 300 T1200 300 V600 H0 Z"/></svg>');
-            background-size: cover;
-            padding: 5rem 5%;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '๛';
-            position: absolute;
-            font-size: 20rem;
-            color: rgba(212, 175, 55, 0.1);
-            top: -5rem;
-            right: -5rem;
-            font-family: 'Charm', cursive;
-        }
-
-        .hero-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-            position: relative;
-        }
-
-        .hero-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            line-height: 1.3;
-            font-family: 'Charm', cursive;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .hero-content .subtitle {
-            font-size: 1.5rem;
-            color: var(--secondary-color);
-            margin-bottom: 1rem;
-            font-family: 'Charm', cursive;
-        }
-
-        .hero-content p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-            line-height: 1.8;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-family: 'Sarabun', sans-serif;
-        }
-
-        .btn-primary {
-            background: var(--secondary-color);
-            color: var(--primary-color);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.4);
-        }
-
-        .btn-secondary {
-            background: rgba(255,255,255,0.2);
-            color: white;
-            border: 2px solid white;
-        }
-
-        .btn-secondary:hover {
-            background: white;
-            color: var(--primary-color);
-        }
-
-        .hero-mascot {
-            text-align: center;
-            position: relative;
-        }
-
-        .mascot-image {
-            width: 320px;
-            height: 320px;
-            background: rgba(255,255,255,0.15);
-            backdrop-filter: blur(10px);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto;
-            font-size: 8rem;
-            animation: float 3s ease-in-out infinite;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-            border: 5px solid var(--secondary-color);
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-
-        .mascot-speech {
-            background: white;
-            color: var(--text-dark);
-            padding: 1.5rem 2rem;
-            border-radius: 20px;
-            margin-top: 2rem;
-            position: relative;
-            box-shadow: var(--shadow-lg);
-            border: 2px solid var(--secondary-color);
-        }
-
-        .mascot-speech::before {
-            content: '';
-            position: absolute;
-            top: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-left: 10px solid transparent;
-            border-right: 10px solid transparent;
-            border-bottom: 10px solid var(--secondary-color);
-        }
-
-        /* Culture Quiz Section */
-        .quiz-section {
-            padding: 5rem 5%;
-            background: var(--bg-light);
-            position: relative;
-        }
-
-        .quiz-section::before {
-            content: '๏';
-            position: absolute;
-            font-size: 15rem;
-            color: rgba(139, 69, 19, 0.05);
-            top: 2rem;
-            left: 2rem;
-            font-family: 'Charm', cursive;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 3rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            font-family: 'Charm', cursive;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--text-light);
-            font-size: 1.3rem;
-            margin-bottom: 3rem;
-        }
-
-        .quiz-card {
-            background: white;
-            border-radius: 20px;
-            padding: 3rem;
-            box-shadow: var(--shadow-lg);
-            max-width: 900px;
-            margin: 0 auto;
-            border: 3px solid var(--secondary-color);
-        }
-
-        .quiz-question {
-            font-size: 1.8rem;
-            margin-bottom: 2rem;
-            text-align: center;
-            color: var(--primary-color);
-            font-family: 'Charm', cursive;
-        }
-
-        .quiz-options {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .quiz-option {
-            padding: 2rem;
-            border: 3px solid var(--secondary-color);
-            border-radius: 15px;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-align: center;
-            font-size: 1.2rem;
-            background: white;
-        }
-
-        .quiz-option:hover {
-            background: var(--bg-light);
-            transform: translateY(-5px);
-            box-shadow: var(--shadow);
-        }
-
-        .quiz-option.selected {
-            border-color: var(--primary-color);
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            color: white;
-        }
-
-        .quiz-result {
-            display: none;
-            text-align: center;
-            padding: 2.5rem;
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            color: white;
-            border-radius: 15px;
-            margin-top: 2rem;
-        }
-
-        .quiz-result.show {
-            display: block;
-            animation: slideIn 0.5s;
-        }
-
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Culture Categories */
-        .culture-section {
-            padding: 5rem 5%;
-            background: white;
-        }
-
-        .culture-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .culture-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: all 0.3s;
-            cursor: pointer;
-            border: 2px solid var(--secondary-color);
-        }
-
-        .culture-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--primary-color);
-        }
-
-        .culture-icon {
-            padding: 2rem;
-            background: linear-gradient(135deg, var(--bg-light), white);
-            text-align: center;
-            font-size: 4rem;
-            border-bottom: 2px solid var(--secondary-color);
-        }
-
-        .culture-content {
-            padding: 1.5rem;
-        }
-
-        .culture-title {
-            font-size: 1.5rem;
-            margin-bottom: 0.8rem;
-            color: var(--primary-color);
-            font-family: 'Charm', cursive;
-        }
-
-        .culture-description {
-            color: var(--text-light);
-            font-size: 1rem;
-            line-height: 1.7;
-            margin-bottom: 1rem;
-        }
-
-        .culture-tag {
-            display: inline-block;
-            padding: 0.4rem 1rem;
-            background: var(--bg-light);
-            color: var(--primary-color);
-            border-radius: 20px;
-            font-size: 0.9rem;
-            border: 1px solid var(--secondary-color);
-        }
-
-        /* Heritage Timeline */
-        .timeline-section {
-            padding: 5rem 5%;
-            background: var(--bg-light);
-            position: relative;
-        }
-
-        .timeline {
-            max-width: 1000px;
-            margin: 3rem auto;
-            position: relative;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 4px;
-            height: 100%;
-            background: var(--secondary-color);
-        }
-
-        .timeline-item {
-            margin-bottom: 3rem;
-            position: relative;
-        }
-
-        .timeline-item:nth-child(odd) .timeline-content {
-            margin-left: 0;
-            margin-right: 52%;
-            text-align: right;
-        }
-
-        .timeline-item:nth-child(even) .timeline-content {
-            margin-left: 52%;
-        }
-
-        .timeline-dot {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 30px;
-            height: 30px;
-            background: var(--primary-color);
-            border: 5px solid var(--secondary-color);
-            border-radius: 50%;
-            z-index: 1;
-        }
-
-        .timeline-content {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: var(--shadow);
-            border: 2px solid var(--secondary-color);
-        }
-
-        .timeline-title {
-            font-size: 1.8rem;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-            font-family: 'Charm', cursive;
-        }
-
-        .timeline-period {
-            color: var(--secondary-color);
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .timeline-description {
-            color: var(--text-light);
-            line-height: 1.7;
-        }
-
-        /* Wisdom Section */
-        .wisdom-section {
-            padding: 5rem 5%;
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            color: white;
-        }
-
-        .wisdom-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .wisdom-card {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            padding: 2.5rem;
-            border-radius: 20px;
-            text-align: center;
-            border: 2px solid rgba(212, 175, 55, 0.3);
-            transition: all 0.3s;
-        }
-
-        .wisdom-card:hover {
-            transform: translateY(-5px);
-            background: rgba(255,255,255,0.15);
-            border-color: var(--secondary-color);
-        }
-
-        .wisdom-icon {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-        }
-
-        .wisdom-title {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            font-family: 'Charm', cursive;
-        }
-
-        .wisdom-description {
-            opacity: 0.9;
-            line-height: 1.7;
-        }
-
-        /* Live Culture Section */
-        .live-section {
-            padding: 5rem 5%;
-            background: white;
-        }
-
-        .live-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .live-card {
-            background: var(--bg-light);
-            padding: 2rem;
-            border-radius: 20px;
-            text-align: center;
-            border: 3px solid var(--secondary-color);
-            transition: all 0.3s;
-        }
-
-        .live-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .live-icon {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .live-title {
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-            font-family: 'Charm', cursive;
-        }
-
-        .live-value {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .live-label {
-            color: var(--text-light);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--text-dark);
-            color: white;
-            padding: 3rem 5%;
-            border-top: 4px solid var(--secondary-color);
-        }
-
-        .footer-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-        }
-
-        .footer-section h3 {
-            margin-bottom: 1rem;
-            color: var(--secondary-color);
-            font-family: 'Charm', cursive;
-            font-size: 1.5rem;
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-section a {
-            color: rgba(255,255,255,0.8);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-section a:hover {
-            color: var(--secondary-color);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            opacity: 0.8;
-        }
-
-        /* Chatbot Button */
-        .chat-button {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 75px;
-            height: 75px;
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.2rem;
-            color: white;
-            cursor: pointer;
-            box-shadow: 0 5px 20px rgba(139, 69, 19, 0.4);
-            transition: all 0.3s;
-            z-index: 999;
-            animation: pulse 2s infinite;
-            border: 3px solid var(--secondary-color);
-        }
-
-        .chat-button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.6);
-        }
-
-        @keyframes pulse {
-            0%, 100% { box-shadow: 0 5px 20px rgba(139, 69, 19, 0.4); }
-            50% { box-shadow: 0 5px 30px rgba(212, 175, 55, 0.8); }
-        }
-
-        /* Decorative Elements */
-        .thai-pattern {
-            position: absolute;
-            opacity: 0.05;
-            font-size: 10rem;
-            color: var(--primary-color);
-            font-family: 'Charm', cursive;
-            pointer-events: none;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hero-container {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-
-            .mascot-image {
-                width: 220px;
-                height: 220px;
-                font-size: 5.5rem;
-            }
-
-            .quiz-options {
-                grid-template-columns: 1fr;
-            }
-
-            .section-title {
-                font-size: 2.2rem;
-            }
-
-            .timeline::before {
-                left: 30px;
-            }
-
-            .timeline-item:nth-child(odd) .timeline-content,
-            .timeline-item:nth-child(even) .timeline-content {
-                margin-left: 80px;
-                margin-right: 0;
-                text-align: left;
-            }
-
-            .timeline-dot {
-                left: 30px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-container">
             <a href="#" class="logo">
-                <div class="logo-icon">🏛️</div>
+                <div class="logo-icon">
+                    <img src="img/logo.png" alt="Logo">
+                </div>
                 <span>เสน่ห์เมืองสามน้ำ</span>
             </a>
             <ul class="nav-links">
-                <li><a href="#home">หน้าแรก</a></li>
+                <li><a href="index.html">หน้าแรก</a></li>
                 <li><a href="#quiz">ค้นหาวัฒนธรรม</a></li>
                 <li><a href="#culture">มรดกวัฒนธรรม</a></li>
-                <li><a href="#timeline">ประวัติศาสตร์</a></li>
-                <li><a href="#wisdom">ภูมิปัญญา</a></li>
+                <li><a href="maeklong-history.html">ประวัติศาสตร์</a></li>
+                <li><a href="maeklong-food.html">อาหารท้องถิ่น</a></li>
+                <li><a href="contact.html">ติดต่อเรา</a></li>
             </ul>
         </div>
     </nav>
@@ -773,7 +48,9 @@
                 </div>
             </div>
             <div class="hero-mascot">
-                <div class="mascot-image">🤖</div>
+                <div class="mascot-image">
+                    <img src="img/Bot-logo.png" alt="น้องสามน้ำ - บอทมาสคอต">
+                </div>
                 <div class="mascot-speech">
                     <strong class="thai-font">สวัสดีค่ะ! ฉันคือน้องสามน้ำ 🙏</strong><br>
                     ผู้รักษาและถ่ายทอดเรื่องราววัฒนธรรมอันล้ำค่าของสมุทรสงคราม พร้อมพาคุณสัมผัสมรดกทางวัฒนธรรมที่สืบทอดมาหลายชั่วอายุคน
@@ -979,61 +256,6 @@
         <span class="thai-pattern" style="bottom: 5%; left: 5%;">๛</span>
     </section>
 
-    <!-- Timeline Section -->
-    <section class="timeline-section" id="timeline">
-        <div class="container">
-            <h2 class="section-title">📜 เส้นทางประวัติศาสตร์</h2>
-            <p class="section-subtitle">ติดตามความเป็นมาของสมุทรสงครามผ่านกาลเวลา</p>
-            
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3 class="timeline-title">สมัยอยุธยา</h3>
-                        <div class="timeline-period">พ.ศ. 1893-2310</div>
-                        <p class="timeline-description">เมืองแม่กลองเป็นเมืองท่าสำคัญทางการค้า ตั้งค่ายบางกุ้งเป็นป้อมปราการป้องกันศัตรูทางทะเล เป็นหนึ่งในเมืองหน้าด่านสำคัญของกรุงศรีอยุธยา</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3 class="timeline-title">สมัยธนบุรี</h3>
-                        <div class="timeline-period">พ.ศ. 2310-2325</div>
-                        <p class="timeline-description">สมเด็จพระเจ้าตากสินมหาราชทรงใช้แม่กลองเป็นฐานทัพสำคัญ มีการสร้างป้อมและค่ายทหาร เมืองแม่กลองจึงมีบทบาทสำคัญในประวัติศาสตร์การกู้อิสรภาพ</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3 class="timeline-title">สมัยรัตนโกสินทร์ตอนต้น</h3>
-                        <div class="timeline-period">พ.ศ. 2325-2394</div>
-                        <p class="timeline-description">พระบาทสมเด็จพระพุทธเลิศหล้านภาลัย (ร.2) ประสูติที่วัดจุฬามณี เมืองแม่กลอง จึงมีการพัฒนาเมืองและสร้างวัดวาอารามสำคัญหลายแห่ง</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3 class="timeline-title">การก่อตั้งจังหวัด</h3>
-                        <div class="timeline-period">พ.ศ. 2481</div>
-                        <p class="timeline-description">ยกฐานะเป็นจังหวัดสมุทรสงคราม แยกออกจากจังหวัดสมุทรสาคร มีอำเภอเมืองสมุทรสงคราม อำเภออัมพวา และอำเภอบางคนที</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3 class="timeline-title">ยุคปัจจุบัน</h3>
-                        <div class="timeline-period">พ.ศ. 2543-ปัจจุบัน</div>
-                        <p class="timeline-description">พัฒนาเป็นแหล่งท่องเที่ยววัฒนธรรม อนุรักษ์วิถีชีวิตริมน้ำและสถาปัตยกรรมโบราณ ตลาดน้ำอัมพวาได้รับรางวัลอนุรักษ์มรดกทางสถาปัตยกรรมระดับอาเซียน</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Wisdom Section -->
     <section class="wisdom-section" id="wisdom">
         <div class="container">
@@ -1130,12 +352,12 @@
             <div class="footer-section">
                 <h3>เมนูหลัก</h3>
                 <ul>
-                    <li><a href="#home">หน้าแรก</a></li>
+                    <li><a href="index.html">หน้าแรก</a></li>
                     <li><a href="#quiz">ค้นหาวัฒนธรรม</a></li>
                     <li><a href="#culture">มรดกวัฒนธรรม</a></li>
                     <li><a href="#places">สถานที่สำคัญ</a></li>
-                    <li><a href="#timeline">ประวัติศาสตร์</a></li>
-                    <li><a href="#wisdom">ภูมิปัญญา</a></li>
+                    <li><a href="maeklong-history.html">ประวัติศาสตร์</a></li>
+                    <li><a href="maeklong-food.html">อาหารท้องถิ่น</a></li>
                 </ul>
             </div>
 
@@ -1158,8 +380,125 @@
                 </p>
                 <div style="margin-top: 1.5rem;">
                     <p style="margin-bottom: 0.5rem;">ติดตามเราได้ที่:</p>
-                    <div style="display: flex; gap: 0.8rem; font-size: 1.8rem </div>
+                    <div style="display: flex; gap: 0.8rem; font-size: 1.8rem;">
+                        <a href="#" style="color: white; opacity: 0.8; transition: opacity 0.3s;">📘</a>
+                        <a href="#" style="color: white; opacity: 0.8; transition: opacity 0.3s;">📷</a>
+                        <a href="#" style="color: white; opacity: 0.8; transition: opacity 0.3s;">🐦</a>
+                        <a href="#" style="color: white; opacity: 0.8; transition: opacity 0.3s;">📺</a>
+                    </div>
                 </div>
-</head>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 Charm of Samutsongkhram. สงวนลิขสิทธิ์ | พัฒนาเพื่อส่งเสริมวัฒนธรรมท้องถิ่น</p>
+        </div>
+    </footer>
+
+    <!-- Chatbot Button -->
+    <div class="chat-button">
+        <img src="img/Bot-logo.png" alt="Chat" style="width: 100%; height: 100%; object-fit: contain; padding: 8px;">
+    </div>
+
+    <!-- Chatbot Integration -->
+    <div id="bn-root"></div>
+    <script>window.onload = function() { BN.init({ version: '1.0' }) }</script>
+    <script>
+        (function(d, s, id) {
+            var js, bjs = d.getElementsByTagName(s)[0];
+            if(d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://console.botnoi.ai/customerchat/index.js';
+            bjs.parentNode.insertBefore(js, bjs);
+        } (document, 'script', 'bn-jssdk'));
+    </script>
+    <script>
+        const userLang = navigator.language || navigator.userLanguage;
+        document.querySelector('.bn-customerchat')?.setAttribute('locale', userLang.startsWith('th') ? 'th' : 'en');
+    </script>
+    <div class="bn-customerchat"
+        bot_id="68f8a69d47ecdfb86c7e3f67"
+        bot_logo="img/Bot-logo.png"
+        bot_name="น้องสามน้ำ - Charm of Samutsongkhram"
+        theme_color="#2563eb"
+        locale="th"
+        logged_in_greeting="ยินดีให้บริการค่ะ 😄"
+        greeting_message="สวัสดีค่ะ 😊 ยินดีต้อนรับสู่ระบบบริการของเรา ต้องการให้ช่วยเรื่องอะไรดีคะ?"
+    >
+    </div>
+
+    <script>
+        // Quiz functionality
+        const quizOptions = document.querySelectorAll('.quiz-option');
+        const quizResult = document.getElementById('quizResult');
+        const resultText = document.getElementById('resultText');
+
+        const results = {
+            tradition: {
+                title: '🎊 ประเพณีและเทศกาล',
+                text: 'คุณน่าจะชอบงานแห่เทียนพรรษา งานลอยกระทง และการแสดงพื้นบ้าน! แนะนำให้เยี่ยมชมวัดต่างๆ ในช่วงเทศกาล และสัมผัสบรรยากาศงานบุญประจำปีของชาวสมุทรสงคราม'
+            },
+            craft: {
+                title: '🎨 ศิลปะและหัตถกรรม',
+                text: 'คุณน่าจะชื่นชอบงานฝีมือพื้นบ้าน! แนะนำให้เยี่ยมชมการจักสาน ทอผ้า และศิลปะการทำเครื่องประดับจากเปลือกหอย พร้อมเรียนรู้เทคนิคจากช่างฝีมือท้องถิ่น'
+            },
+            food: {
+                title: '🍜 อาหารและวัตถุดิบท้องถิ่น',
+                text: 'คุณน่าจะเป็นคนรักการกิน! แนะนำให้ลิ้มลองข้าวแช่ ลูกชิ้นปลากราย หอยทอด และขนมหม้อแกง พร้อมเรียนรู้ภูมิปัญญาการทำอาหารและเครื่องปรุงรสท้องถิ่นอย่างกะปิ'
+            },
+            history: {
+                title: '📜 ประวัติศาสตร์และสถาปัตยกรรม',
+                text: 'คุณน่าจะชื่นชอบประวัติศาสตร์! แนะนำให้เยี่ยมชมค่ายบางกุ้ง โบสถ์ปรกโพธิ์ วัดเพชรสมุทรวรวิหาร วัดจุฬามณี และอุทยาน ร.2 เพื่อเรียนรู้เรื่องราวในอดีต'
+            }
+        };
+
+        quizOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                quizOptions.forEach(opt => opt.classList.remove('selected'));
+                this.classList.add('selected');
+                
+                const type = this.getAttribute('data-type');
+                const result = results[type];
+                
+                resultText.innerHTML = `<strong>${result.title}</strong><br><br>${result.text}`;
+                quizResult.classList.add('show');
+            });
+        });
+
+        function resetQuiz() {
+            quizOptions.forEach(opt => opt.classList.remove('selected'));
+            quizResult.classList.remove('show');
+        }
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Chat button click
+        document.querySelector('.chat-button').addEventListener('click', function() {
+            // Trigger chatbot open
+            console.log('Chat button clicked');
+        });
+    </script>
 </body>
 </html>
