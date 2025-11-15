@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="เรียนรู้วัฒนธรรม ประเพณี และภูมิปัญญาท้องถิ่นสมุทรสงคราม ผ่านบอทอัจฉริยะ">
+    <title>เสน่ห์เมืองสามน้ำ - มรดกวัฒนธรรมสมุทรสงคราม</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&family=Charm:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #8B4513;
+            --secondary-color: #D4AF37;
+            --accent-color: #CD853F;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --bg-light: #FFF8DC;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        body {
+            font-family: 'Sarabun', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        .thai-font {
+            font-family: 'Charm', cursive;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--white);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+            border-bottom: 3px solid var(--secondary-color);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-family: 'Charm', cursive;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary-color);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.9), rgba(205, 133, 63, 0.9)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%238B4513" width="1200" height="600"/><path fill="%23D4AF37" opacity="0.1" d="M0 300 Q300 200 600 300 T1200 300 V600 H0 Z"/></svg>');
+            background-size: cover;
+            padding: 5rem 5%;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '๛';
+            position: absolute;
+            font-size: 20rem;
+            color: rgba(212, 175, 55, 0.1);
+            top: -5rem;
+            right: -5rem;
+            font-family: 'Charm', cursive;
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+            font-family: 'Charm', cursive;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            font-family: 'Charm', cursive;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Sarabun', sans-serif;
+        }
+
+        .btn-primary {
+            background: var(--secondary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        .hero-mascot {
+            text-align: center;
+            position: relative;
+        }
+
+        .mascot-image {
+            width: 320px;
+            height: 320px;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            font-size: 8rem;
+            animation: float 3s ease-in-out infinite;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            border: 5px solid var(--secondary-color);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .mascot-speech {
+            background: white;
+            color: var(--text-dark);
+            padding: 1.5rem 2rem;
+            border-radius: 20px;
+            margin-top: 2rem;
+            position: relative;
+            box-shadow: var(--shadow-lg);
+            border: 2px solid var(--secondary-color);
+        }
+
+        .mascot-speech::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 10px solid var(--secondary-color);
+        }
+
+        /* Culture Quiz Section */
+        .quiz-section {
+            padding: 5rem 5%;
+            background: var(--bg-light);
+            position: relative;
+        }
+
+        .quiz-section::before {
+            content: '๏';
+            position: absolute;
+            font-size: 15rem;
+            color: rgba(139, 69, 19, 0.05);
+            top: 2rem;
+            left: 2rem;
+            font-family: 'Charm', cursive;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-family: 'Charm', cursive;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+        }
+
+        .quiz-card {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: var(--shadow-lg);
+            max-width: 900px;
+            margin: 0 auto;
+            border: 3px solid var(--secondary-color);
+        }
+
+        .quiz-question {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: var(--primary-color);
+            font-family: 'Charm', cursive;
+        }
+
+        .quiz-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .quiz-option {
+            padding: 2rem;
+            border: 3px solid var(--secondary-color);
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+            font-size: 1.2rem;
+            background: white;
+        }
+
+        .quiz-option:hover {
+            background: var(--bg-light);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .quiz-option.selected {
+            border-color: var(--primary-color);
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+        }
+
+        .quiz-result {
+            display: none;
+            text-align: center;
+            padding: 2.5rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            border-radius: 15px;
+            margin-top: 2rem;
+        }
+
+        .quiz-result.show {
+            display: block;
+            animation: slideIn 0.5s;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Culture Categories */
+        .culture-section {
+            padding: 5rem 5%;
+            background: white;
+        }
+
+        .culture-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .culture-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+            cursor: pointer;
+            border: 2px solid var(--secondary-color);
+        }
+
+        .culture-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-color);
+        }
+
+        .culture-icon {
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--bg-light), white);
+            text-align: center;
+            font-size: 4rem;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        .culture-content {
+            padding: 1.5rem;
+        }
+
+        .culture-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary-color);
+            font-family: 'Charm', cursive;
+        }
+
+        .culture-description {
+            color: var(--text-light);
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .culture-tag {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            background: var(--bg-light);
+            color: var(--primary-color);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid var(--secondary-color);
+        }
+
+        /* Heritage Timeline */
+        .timeline-section {
+            padding: 5rem 5%;
+            background: var(--bg-light);
+            position: relative;
+        }
+
+        .timeline {
+            max-width: 1000px;
+            margin: 3rem auto;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: var(--secondary-color);
+        }
+
+        .timeline-item {
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: 0;
+            margin-right: 52%;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: 52%;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 30px;
+            background: var(--primary-color);
+            border: 5px solid var(--secondary-color);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            border: 2px solid var(--secondary-color);
+        }
+
+        .timeline-title {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-family: 'Charm', cursive;
+        }
+
+        .timeline-period {
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-description {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* Wisdom Section */
+        .wisdom-section {
+            padding: 5rem 5%;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+        }
+
+        .wisdom-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .wisdom-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            transition: all 0.3s;
+        }
+
+        .wisdom-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.15);
+            border-color: var(--secondary-color);
+        }
+
+        .wisdom-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .wisdom-title {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            font-family: 'Charm', cursive;
+        }
+
+        .wisdom-description {
+            opacity: 0.9;
+            line-height: 1.7;
+        }
+
+        /* Live Culture Section */
+        .live-section {
+            padding: 5rem 5%;
+            background: white;
+        }
+
+        .live-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .live-card {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            border: 3px solid var(--secondary-color);
+            transition: all 0.3s;
+        }
+
+        .live-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .live-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .live-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-family: 'Charm', cursive;
+        }
+
+        .live-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .live-label {
+            color: var(--text-light);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 3rem 5%;
+            border-top: 4px solid var(--secondary-color);
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+            font-family: 'Charm', cursive;
+            font-size: 1.5rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--secondary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.8;
+        }
+
+        /* Chatbot Button */
+        .chat-button {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 75px;
+            height: 75px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(139, 69, 19, 0.4);
+            transition: all 0.3s;
+            z-index: 999;
+            animation: pulse 2s infinite;
+            border: 3px solid var(--secondary-color);
+        }
+
+        .chat-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.6);
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 5px 20px rgba(139, 69, 19, 0.4); }
+            50% { box-shadow: 0 5px 30px rgba(212, 175, 55, 0.8); }
+        }
+
+        /* Decorative Elements */
+        .thai-pattern {
+            position: absolute;
+            opacity: 0.05;
+            font-size: 10rem;
+            color: var(--primary-color);
+            font-family: 'Charm', cursive;
+            pointer-events: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .mascot-image {
+                width: 220px;
+                height: 220px;
+                font-size: 5.5rem;
+            }
+
+            .quiz-options {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                margin-left: 80px;
+                margin-right: 0;
+                text-align: left;
+            }
+
+            .timeline-dot {
+                left: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">🏛️</div>
+                <span>เสน่ห์เมืองสามน้ำ</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">หน้าแรก</a></li>
+                <li><a href="#quiz">ค้นหาวัฒนธรรม</a></li>
+                <li><a href="#culture">มรดกวัฒนธรรม</a></li>
+                <li><a href="#timeline">ประวัติศาสตร์</a></li>
+                <li><a href="#wisdom">ภูมิปัญญา</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="subtitle">มรดกวัฒนธรรมแห่งเมืองสามน้ำ</div>
+                <h1>เสน่ห์เมืองสามน้ำ</h1>
+                <p>เรียนรู้วัฒนธรรม ประเพณี และภูมิปัญญาท้องถิ่นที่สืบทอดมายาวนาน ผ่านบอทผู้บอกเล่าเรื่องราวอันทรงคุณค่าของสมุทรสงคราม</p>
+                <div class="hero-buttons">
+                    <a href="#quiz" class="btn btn-primary">
+                        🎭 สำรวจวัฒนธรรม
+                    </a>
+                    <a href="#culture" class="btn btn-secondary">
+                        📚 เรียนรู้เพิ่มเติม
+                    </a>
+                </div>
+            </div>
+            <div class="hero-mascot">
+                <div class="mascot-image">🤖</div>
+                <div class="mascot-speech">
+                    <strong class="thai-font">สวัสดีค่ะ! ฉันคือน้องสามน้ำ 🙏</strong><br>
+                    ผู้รักษาและถ่ายทอดเรื่องราววัฒนธรรมอันล้ำค่าของสมุทรสงคราม พร้อมพาคุณสัมผัสมรดกทางวัฒนธรรมที่สืบทอดมาหลายชั่วอายุคน
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Culture Quiz Section -->
+    <section class="quiz-section" id="quiz">
+        <div class="container">
+            <h2 class="section-title">🎭 คุณสนใจวัฒนธรรมด้านไหน?</h2>
+            <p class="section-subtitle">ค้นพบมรดกวัฒนธรรมที่เหมาะกับความสนใจของคุณ</p>
+            
+            <div class="quiz-card">
+                <div class="quiz-question">เลือกสิ่งที่คุณอยากเรียนรู้มากที่สุด</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-type="tradition">
+                        🎊<br>ประเพณีและเทศกาล<br><small>งานบุญ พิธีกรรม เทศกาลท้องถิ่น</small>
+                    </div>
+                    <div class="quiz-option" data-type="craft">
+                        🎨<br>ศิลปะและหัตถกรรม<br><small>งานฝีมือ ศิลปะพื้นบ้าน</small>
+                    </div>
+                    <div class="quiz-option" data-type="food">
+                        🍜<br>อาหารและวัตถุดิบท้องถิ่น<br><small>ตำรับอาหาร ภูมิปัญญาการทำอาหาร</small>
+                    </div>
+                    <div class="quiz-option" data-type="history">
+                        📜<br>ประวัติศาสตร์และสถาปัตยกรรม<br><small>วัด โบราณสถาน เรื่องราวในอดีต</small>
+                    </div>
+                </div>
+                <div class="quiz-result" id="quizResult">
+                    <h3 style="font-size: 2rem; margin-bottom: 1rem; font-family: 'Charm', cursive;">✨ แนะนำสำหรับคุณ</h3>
+                    <p id="resultText" style="font-size: 1.3rem; margin-bottom: 1.5rem; line-height: 1.8;"></p>
+                    <button class="btn btn-secondary" onclick="resetQuiz()">🔄 เลือกใหม่</button>
+                </div>
+            </div>
+        </div>
+        <span class="thai-pattern" style="top: 5%; right: 5%;">๏</span>
+    </section>
+
+    <!-- Culture Categories -->
+    <section class="culture-section" id="culture">
+        <div class="container">
+            <h2 class="section-title">📚 มรดกวัฒนธรรม</h2>
+            <p class="section-subtitle">สำรวจความหลากหลายทางวัฒนธรรมของสมุทรสงคราม</p>
+            
+            <div class="culture-grid">
+                <div class="culture-card">
+                    <div class="culture-icon">🎊</div>
+                    <div class="culture-content">
+                        <h3 class="culture-title">ประเพณีแห่เทียนพรรษา</h3>
+                        <p class="culture-description">ประเพณีอันงดงามที่จัดขึ้นในวันเข้าพรรษา ชาวบ้านจะร่วมกันแห่เทียนเข้าวัด พร้อมขบวนแห่ที่ประดับประดาอย่างสวยงาม สะท้อนความศรัทธาและเอกลักษณ์ท้องถิ่น</p>
+                        <span class="culture-tag">🕯️ ประเพณี</span>
+                    </div>
+                </div>
+
+                <div class="culture-card">
+                    <div class="culture-icon">🎭</div>
+                    <div class="culture-content">
+                        <h3 class="culture-title">การแสดงพื้นบ้าน</h3>
+                        <p class="culture-description">หนังตะลุง ลิเก และโนราห์ ศิลปะการแสดงพื้นบ้านที่สะท้อนวิถีชีวิตและความเชื่อของคนในอดีต เป็นมรดกทางวัฒนธรรมที่ควรอนุรักษ์</p>
+                        <span class="culture-tag
